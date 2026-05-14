@@ -6,10 +6,16 @@ jobs:
     steps:
       - name: Download the code
         uses: actions/checkout@v3
+      - name: Install Node JS
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Run npm install
+        run: npm install
       - name: Install dependencies
         run: npm ci
       - name: Add lint configuration
-        run: npm init @eslint/config@latest -- --yes
+        run: npx eslint .
       - name: Run lint
         run: npm run lint
 
@@ -18,10 +24,16 @@ jobs:
     steps:
       - name: Download the code
         uses: actions/checkout@v3
+      - name: Install Node JS
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Run npm install
+        run: npm install
       - name: Install dependencies
         run: npm ci
       - name: Add lint configuration
-        run: npm init @eslint/config@latest -- --yes
+        run: npx eslint .
       - name: Test code
         run: npm run test
 
@@ -30,10 +42,16 @@ jobs:
     steps:
       - name: Download the code
         uses: actions/checkout@v3
+      - name: Install Node JS
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Run npm install
+        run: npm install
       - name: Install dependencies
         run: npm ci
       - name: Add lint configuration
-        run: npm init @eslint/config@latest -- --yes
+        run: npx eslint .
       - name: Build code
         run: npm run build
       - name: Deploy code
